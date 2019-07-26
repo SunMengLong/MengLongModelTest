@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.menglong.modeltest"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    //基础组件
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    compile(name: 'ml_common-release', ext: 'aar')
+    //网络请求组件
+    compile(name: 'ml_http-release', ext: 'aar')
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    //数据解析组件
+    compile(name: 'ml_json-release', ext: 'aar')
+    //视频播放器组件
+    compile(name: 'ml_videoplayer-release', ext: 'aar')
+    compile fileTree(include: '*/so', dir: 'libs/armeabi')
+    compile fileTree(include: '*/so', dir: 'libs/armeabi-v7a')
+    compile(name: 'ijkplayer-armv7a-release', ext: 'aar')
+    compile(name: 'ijkplayer-java-release', ext: 'aar')
+    compile(name: 'com.star.util-release', ext: 'aar')
+    compile(name: 'com.star.ui-release', ext: 'aar')
+    //apk更新组件
+    compile(name: 'ml_update-release', ext: 'aar')
+}
